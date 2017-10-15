@@ -1,7 +1,7 @@
 import ffmpy
 
-path = "C:\\temp"
-inputFile = "mal eng 1st half eng.mp4"
+path = "C:\\users\\roy\\Downloads"
+inputFile = "West Ham United vs Tottenham 2017-09-23 2nd half ENG.mp4"
 outputFile = inputFile.replace(".mp4", ".m4a")
 ff = ffmpy.FFmpeg(
     inputs={path + '\\' + inputFile: None},
@@ -9,4 +9,3 @@ ff = ffmpy.FFmpeg(
 )
 
 ff.run()
-ffmpy
