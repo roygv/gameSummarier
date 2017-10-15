@@ -1,5 +1,6 @@
 # from PIL import Image
 import cv2
+import os
 import numpy as np
 from skimage.measure import compare_ssim, compare_mse
 
@@ -44,8 +45,11 @@ def findSubChyrons(chyron):
 
 
 def findChyrons(inputFile, debug=False):
-    path = "C:\\users\\roy\\Downloads"
-    vidcap = cv2.VideoCapture(path + '\\' + inputFile)
+    #path = "C:/users/roy/Downloads"
+    home = os.path.expanduser("~")
+    path = os.path.join(home,"Downloads")
+    path = os.path.join(path,"videos")
+    vidcap = cv2.VideoCapture(path + '/' + inputFile)
     count = 0
     samples = 300
     sample_window = 10
@@ -108,10 +112,10 @@ def findChyrons(inputFile, debug=False):
         if (np.sum(imageOut / 255) / (width * height)) <= 0.001:
             continue
 
-        cv2.imwrite(path + '\\' + "diff.tif", imageOut)
-        # cv2.imwrite(path + '\\' + "accumulator.tif", accumulator)
-        cv2.imwrite(path + '\\' + "imageBW.tif", imageBW)
-        cv2.imwrite(path + '\\' + "prev_imageBW.tif", prev_imageBW)
+        cv2.imwrite(path + '/' + "diff.tif", imageOut)
+        # cv2.imwrite(path + '/' + "accumulator.tif", accumulator)
+        cv2.imwrite(path + '/' + "imageBW.tif", imageBW)
+        cv2.imwrite(path + '/' + "prev_imageBW.tif", prev_imageBW)
         # Find the largest contour around the discovered points
         img, contours, hierarchy = cv2.findContours(imageOut, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         largest_area = sorted(contours, key=cv2.contourArea)[-1]
@@ -119,7 +123,7 @@ def findChyrons(inputFile, debug=False):
         # Create a rectangular bounding box and draw it on the image
         x, y, w, h = cv2.boundingRect(largest_area)
         cv2.rectangle(image, (x - 1, y - 1), (x + w + 1, y + h + 1), (255, 255, 0), 1)
-        cv2.imwrite(path + '\\' + "image.tif", image)
+        cv2.imwrite(path + '/' + "image.tif", image)
         if debug == True:
             print('Found box: ', 'x=', x, ' y=', y, ' w=', w, ' h=', h, 'count=', np.sum(diff))
 
@@ -148,7 +152,7 @@ def findChyrons(inputFile, debug=False):
 
         if percentWhite > 0.98:
             crop = image[y:y + h, x:x + w]
-            cv2.imwrite(path + '\\' + "crop.tif", crop)
+            cv2.imwrite(path + '/' + "crop.tif", crop)
             chyronCoord.append({'x': x, 'y': y, 'w': w, 'h': h, 'sec': pos / 1000, 'crop': crop})
     return chyronCoord
 
@@ -162,22 +166,22 @@ for idx, coords in enumerate(chyronCoord):
 
 #
 # # Create a mask and apply to an image we want to extract text from
-# img1 = cv2.imread(path + '\\' + 'frame11.tif')
+# img1 = cv2.imread(path + '/' + 'frame11.tif')
 # mask = np.zeros(img1.shape, np.uint8)
 # mask[y:y+h, x:x+w] = 255
 # dst = cv2.bitwise_and(img1, mask)
 # mask = 255 - mask
 # roi = cv2.add(dst, mask)
-# cv2.imwrite(path + '\\' + "roi.tif", roi)
-# cv2.imwrite(path + '\\' + "dst.tif", dst)
-# cv2.imwrite(path + '\\' + "mask.tif", mask)
+# cv2.imwrite(path + '/' + "roi.tif", roi)
+# cv2.imwrite(path + '/' + "dst.tif", dst)
+# cv2.imwrite(path + '/' + "mask.tif", mask)
 #
 # # Prepare image for OCR
-# img = cv2.imread(path + '\\' + 'roi.tif')
+# img = cv2.imread(path + '/' + 'roi.tif')
 # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # kernel = np.ones((1, 1), np.uint8)
 # img = cv2.dilate(img, kernel, iterations = 1)
-# cv2.imwrite(path + '\\' + "x-" + 'roi.tif', img)
+# cv2.imwrite(path + '/' + "x-" + 'roi.tif', img)
 # img = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-# cv2.imwrite(path + '\\' + "y-" + 'roi.tif', img)
-# # result = pytesseract.inage_to_string(Image.open(path + '\\' + "y-" + image))
+# cv2.imwrite(path + '/' + "y-" + 'roi.tif', img)
+# # result = pytesseract.inage_to_string(Image.open(path + '/' + "y-" + image))
