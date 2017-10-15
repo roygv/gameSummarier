@@ -9,7 +9,13 @@ for image; do
   ls "$image"
 done >>  "$filelist"
 
-tesseract -psm 7 -c include_page_breaks=1 -c page_separator='' "$filelist" stdout
+oneline(){
+  tr '\n' ' ' | sed 's/  */ /g'
+}
+
+tesseract -psm 7 -c include_page_breaks=1 -c page_separator='' "$filelist" stdout | oneline
+printf '\n\n'
+
 #tesseract -psm 7 -c include_page_breaks=1 "$filelist" stdout
 
 [ -f "$filelist" ] && rm -f "$filelist"
