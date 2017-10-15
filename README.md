@@ -85,3 +85,11 @@ print(cv2.__version__)
 https://github.com/manisandro/gImageReader/releases/download/v3.2.1/gImageReader_3.2.1_qt5_x86_64_tesseract4.0.0.git2f10be5.exe
 # Install python wrapper for tesseract
 pip install tesserocr
+
+
+# Installing pyFASST
+sudo pip install cython
+download zip from here: https://pypi.python.org/pypi/pyFASST
+unzip to a directory
+cd to it (cd pyFASST-0.9.3)
+run "python setup.py build"
