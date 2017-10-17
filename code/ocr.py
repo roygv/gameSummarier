@@ -52,7 +52,7 @@ def findChyrons(inputFile, debug=False):
     file = os.path.join(path, inputFile)
     vidcap = cv2.VideoCapture(file)
     count = 0
-    samples = 200
+    samples = 500
     sample_window = 10
     success = True
     chyronCoord = []
@@ -72,8 +72,9 @@ def findChyrons(inputFile, debug=False):
             prev_image = image
         success, image = vidcap.read()
         pos = vidcap.get(cv2.CAP_PROP_POS_MSEC)  # position in msec
-        if pos % 250 != 0:
-            continue  # Skip to the next 1/4 second
+        vidcap.set(cv2.CAP_PROP_POS_MSEC, pos + 250)
+        # if pos % 250 != 0:
+        #     continue  # Skip to the next 1/4 second
         if not success:
             print('Failed to read frame: ', success)
             break
@@ -85,8 +86,10 @@ def findChyrons(inputFile, debug=False):
             newClip = image[coords["y"]:coords["y"] + coords["h"], coords["x"]:coords["x"] + coords["w"]]
             clip = coords["crop"]
             score = compare_ssim(clip, newClip, multichannel=True)
-            chyronMask[coords["y"] - 2:coords["y"] + coords["h"] + 2, coords["x"] - 2:coords["x"] + coords["w"] + 2] = 1
-            print("SSIM: {}".format(score), ', MSE=', compare_mse(newClip, clip))
+            mse = compare_mse(newClip, clip)
+            if score > 0.75 and mse < 1000:
+                print("Chyron #", idx, ", sec. ", int(pos / 1000), ", SSIM: {}".format(score), ', MSE=',
+                      compare_mse(newClip, clip))
 
         imageBW = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # Convert to B&W
         if count == 1:
@@ -98,7 +101,8 @@ def findChyrons(inputFile, debug=False):
         # Compare the two images and add 1 (True is white which is 255 so need to divide by 255)
         # in place of each pixel that hadn't changed
         # diff = cv2.inRange(imageBW, (prev_imageBW - 1), (prev_imageBW + 1))/255
-        diff = cv2.inRange(image, (prev_image - 1), (prev_image + 1)) / 255
+        # diff = cv2.inRange(image, (prev_image - 1), (prev_image + 1)) / 255
+        diff = np.sum(cv2.compare(image, prev_image, cv2.CMP_EQ) / 255, 2)
         # diff = image and image[1:height-1] and image[1:height-1]
         diffs.append(diff)
         if len(diffs) < sample_window:  # we have enough samples
@@ -110,31 +114,34 @@ def findChyrons(inputFile, debug=False):
         accumulator = np.sum(diffs, 0, keepdims=True)  # + np.sum(diffs[-3], 0, keepdims=True)
         accumulator = diffs[-3] + 2 * diffs[-2] + 3 * diffs[-1] + np.squeeze(accumulator)  # Recency bias
         # Threshold of a point in the mask is 1/2 the sample window (# of frames compared)
-        imageOut = cv2.compare(accumulator, sample_window + 2, cv2.CMP_GT)
+        imageOut = cv2.compare(accumulator, sample_window + 3, cv2.CMP_GT)
         imageOut = cv2.bitwise_and(imageOut, (255 * (1 - chyronMask)))  # ignore previously found areas
+
+        cv2.imwrite(path + '/' + "diff.tif", imageOut)
 
         # Threahold of a minimum number of fixed pixels
         if (np.sum(imageOut / 255) / (width * height)) <= 0.001:
+            if debug:
+                cv2.imwrite(path + '/' + "image.tif", image)
             continue
 
-        cv2.imwrite(path + '/' + "diff.tif", imageOut)
         # cv2.imwrite(path + '/' + "accumulator.tif", accumulator)
-        cv2.imwrite(path + '/' + "imageBW.tif", imageBW)
-        cv2.imwrite(path + '/' + "prev_imageBW.tif", prev_imageBW)
+        # cv2.imwrite(path + '/' + "imageBW.tif", imageBW)
+        # cv2.imwrite(path + '/' + "prev_imageBW.tif", prev_imageBW)
         # Find the largest contour around the discovered points
         img, contours, hierarchy = cv2.findContours(imageOut, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         largest_area = sorted(contours, key=cv2.contourArea)[-1]
 
         # Create a rectangular bounding box and draw it on the image
         x, y, w, h = cv2.boundingRect(largest_area)
-        cv2.rectangle(image, (x - 1, y - 1), (x + w + 1, y + h + 1), (255, 255, 0), 1)
-        #        cv2.imwrite(path + '/' + "image.tif", image)
-        if debug == True:
-            print('Found box: ', 'x=', x, ' y=', y, ' w=', w, ' h=', h, 'count=', np.sum(diff))
+        if debug:
+            cv2.rectangle(image, (x - 1, y - 1), (x + w + 1, y + h + 1), (255, 255, 0), 1)
+            cv2.imwrite(path + '/' + "image.tif", image)
+
 
         # Tighten it around the text by maximizing the percent of white pixels
         percentWhite = np.sum(imageOut[y:y + h - 1, x:x + w - 1] == 255) / (w * h)
-        while percentWhite > 0.5 and percentWhite <= 0.92 and h > minChyronHeight and w > minChyronWidth:
+        while percentWhite > 0.7 and percentWhite <= 0.92 and h > minChyronHeight and w > minChyronWidth:
             if np.sum(imageOut[y:y + h, x] == 255) / h < 0.8 and w > minChyronWidth:
                 x = x + 1
                 w = w - 1
@@ -146,7 +153,8 @@ def findChyrons(inputFile, debug=False):
             if np.sum(imageOut[y + h - 1, x:x + w] == 255) / w < 0.8 and h > minChyronHeight:
                 h = h - 1
             cv2.rectangle(image, (x - 1, y - 1), (x + w + 1, y + h + 1), (255, 255, 0), 1)
-            #            cv2.imwrite(path + '/' + "image.tif", image)
+            if debug:
+                cv2.imwrite(path + '/' + "image.tif", image)
             # if percentWhite < np.sum(imageOut[y + 1:y + h, x:x + w] == 255) / (w * (h - 1)):
             #     y, h = y + 1, h - 1
             # if percentWhite < np.sum(imageOut[y:y + h - 1, x:x + w] == 255) / (w * (h - 1)):
@@ -159,19 +167,21 @@ def findChyrons(inputFile, debug=False):
                 break
             percentWhite = np.sum(imageOut[y:y + h, x:x + w] == 255) / (w * h)
 
-        if debug:
-            print('Adjusted box: ', 'x=', x, ' y=', y, ' w=', w, ' h=', h, 'len=', len(diffs), ' percentWhite=',
-                  percentWhite)
-
         if percentWhite > 0.92:
             crop = image[y:y + h, x:x + w]
             cv2.imwrite(path + '/' + "crop.tif", crop)
-            chyronCoord.append({'x': x, 'y': y, 'w': w, 'h': h, 'sec': pos / 1000, 'crop': crop})
+            coords = {'x': x, 'y': y, 'w': w, 'h': h, 'sec': pos / 1000, 'crop': crop}
+            chyronCoord.append(coords)
+            chyronMask[coords["y"] - 2:coords["y"] + coords["h"] + 2, coords["x"] - 2:coords["x"] + coords["w"] + 2] = 1
+            if debug:
+                print('Found Chyron: ', 'x=', x, ' y=', y, ' w=', w, ' h=', h, 'len=', len(diffs), ' percentWhite=',
+                      percentWhite)
+
     return chyronCoord
 
 
 inputFile = "West Ham United vs Tottenham 2017-09-23 2nd half ENG.mp4"
-chyronCoord = findChyrons(inputFile)
+chyronCoord = findChyrons(inputFile, False)
 for idx, coords in enumerate(chyronCoord):
     print('Adjusted box: ', 'x=', coords["x"], ' y=', coords["y"], ' w=', coords["w"], ' h=', coords["h"], 'sec=',
           coords["sec"])
