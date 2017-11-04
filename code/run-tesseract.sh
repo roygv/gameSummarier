@@ -1,8 +1,9 @@
 #!/bin/bash
 
-filelist=list-chyron.txt
+filelist=list-chyron.$$.txt
 
-[ -f "$filelist" ] && "** error: file exists: $filelist" && exit 2
+[ -f "$filelist" ] && { printf "** error: temp file exists: $filelist\n\n"; exit 2; }
+[ $# -eq 0 ] && { printf "** error: expecting chyrons.\n** usage: $0 [chyron1.tif chyron1.tif...]\n\n"; exit 2; }
 
 for image; do
   [ ! -f "$image" ] && echo "** error: image not found: $image" && exit 2
