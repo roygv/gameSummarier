@@ -1,10 +1,10 @@
 #!/bin/bash
 
-: ${S3DATA_DIR:="$HOME/Downloads/videos/s3data/"} 
+: ${DATA_DIR:="$HOME/Downloads/videos/"}
 : ${TRAIN_CSV:="trainingData.csv"}
 
 s3_files() {
-  find $S3DATA_DIR -name "*.mp4" -printf "%f\n" | sort
+  find $DATA_DIR -maxdepth 1 -name "*.mp4" -printf "%f\n" -prune | sort
 }
 
 csv_files() {
@@ -24,6 +24,6 @@ print_header() {
 print_header "$TRAIN_CSV"
 comm -23 --check-order <( csv_files ) <( s3_files )
 
-print_header "$S3DATA_DIR"
+print_header "$DATA_DIR"
 comm -13 --check-order <( csv_files ) <( s3_files )
 
