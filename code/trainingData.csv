@@ -1,3 +1,4 @@
+fileName,secondOffset,eventName,timeToCapture
 APO_V_BVB_2h_ENG_avi.mp4,1328,goal,2
 APO_V_BVB_2h_ENG_avi.mp4,999,goal,2
 ARG_V_NIG_1H_ENG.mp4,1888,goal,3
@@ -78,7 +79,6 @@ EVE-ARS_2nd_half_ENG.mp4,478,goal,5
 EVE_V_LYO_1H_ENG.mp4,455,goal,3
 EVE_V_LYO_2H_ENG.mp4,1472,goal,3
 EVE_V_LYO_2H_ENG.mp4,1839,goal,4
-fileName,secondOffset,eventName,timeToCapture
 FIO-ROM_1st_half_ENG.mp4,2027,goal,5
 FIO-ROM_1st_half_ENG.mp4,2552,goal,5
 FIO-ROM_1st_half_ENG.mp4,501,goal,3
