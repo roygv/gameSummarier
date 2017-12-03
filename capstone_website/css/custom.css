@@ -15,12 +15,12 @@ h2 {
 }
 h3 {
 	font-weight: bold;
-	color: #29a329;
+	color: black;
 	background-color: #e8f441;
 }
 h4 {
 	font-weight: bold;
-	color: #29a329;
+	color: black;
 }
 p {
 	font-size: 16px;
@@ -52,13 +52,13 @@ p {
 }
 .navbar-inverse {
 	font-weight: bold;
-	color: #29a329;
+	color: black;
 	background-color: white;
 	border: 0;
 }
 .navbar-inverse .navbar-nav li a {
 	font-weight: bold;
-	color: #29a329;
+	color: black;
 	background-color: #e8f441;
 	font-size: 16px;
 }
