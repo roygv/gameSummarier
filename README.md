@@ -97,5 +97,6 @@ run "python setup.py build"
 # Website
 sftp schneider@ischool.berkeley.edu
 password: Tsd-g8o-aHS-6fb
-Key files: index.html & custom.css.
+Directory: cd/public_html/capstone
+Key files: index.html & custom.css. 
 Website link: http://people.ischool.berkeley.edu/~schneider/capstone/
