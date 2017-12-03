@@ -93,3 +93,8 @@ download zip from here: https://pypi.python.org/pypi/pyFASST
 unzip to a directory
 cd to it (cd pyFASST-0.9.3)
 run "python setup.py build"
+
+# Website
+sftp schneider@ischool.berkeley.edu
+password: Tsd-g8o-aHS-6fb
+Key files: index.html & custom.css.
