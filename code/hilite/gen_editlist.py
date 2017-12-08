@@ -119,7 +119,7 @@ def doPlotGame(index, running_predicted_labels):
     print("Total video length:", timedelta(seconds=len(running_predicted_labels)))
 
 
-def distinctEvent(dirpath, video_filename, running_predicted_labels, videoClip, fps, maxClipLength):
+def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, dirpath):
     from cv2 import ORB_create, xfeatures2d, imread
 
     indexed_running_predicted_labels = np.argsort(running_predicted_labels)
@@ -395,6 +395,7 @@ def main():
         running_predicted_labels = predict_interest(fft2, models)
         # doPlotGame(index, running_predicted_labels)
         # temp jpg files are written to dir_edits or dir_temp, if set
+        # def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, dir_temp):
         events = distinctEvent(video_file, running_predicted_labels, videoClip, fps, args.max_time, dir_temp)
         writeSummaryClipsIndexToCSV(events, video_file, dir_edits, csv_file)
 
