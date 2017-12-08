@@ -5,6 +5,7 @@ import glob
 import os
 from datetime import timedelta
 from os.path import isfile, join, abspath, expanduser, basename, splitext
+import pathlib
 
 import numpy as np
 
@@ -119,7 +120,7 @@ def doPlotGame(index, running_predicted_labels):
     print("Total video length:", timedelta(seconds=len(running_predicted_labels)))
 
 
-def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, dirpath):
+def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, tmpdir=None):
     from cv2 import ORB_create, xfeatures2d, imread
 
     indexed_running_predicted_labels = np.argsort(running_predicted_labels)
@@ -206,9 +207,16 @@ def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxC
             else:
                 events[idx]["clipEndMs"] = scene_list_msec[sceneIdx]
 
-            fPath = join(dirpath, "event{:d}-frame{:d}.jpg".format(idx, sceneIdx))
-            videoClip.save_frame(fPath, t=scene / 1000.0 + 0.25)
-            img = imread(fPath, 0)
+            # probably want a flag that disables retention of tmp image files [ToDo]
+            if not tmpdir: tmpdir='.'
+            dPath = join(tmpdir, splitext(basename(video_filename))[0])
+            if not os.path.exists(dPath):
+                print("creating temp directory for image files: '%s'" % dPath)
+                pathlib.Path(dPath).mkdir(parents=True, exist_ok=True)
+
+            imgPath = join(dPath, "event{:d}-frame{:d}.jpg".format(idx, sceneIdx))
+            videoClip.save_frame(imgPath, t=scene / 1000.0 + 0.25)
+            img = imread(imgPath, 0)
             kp, des = surf.detectAndCompute(img, None)
 
             # Make sure all the original clip is in, end with a scene with manu objects (replay?) after audio had settled
