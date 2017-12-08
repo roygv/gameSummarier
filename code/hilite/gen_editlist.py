@@ -120,7 +120,7 @@ def doPlotGame(index, running_predicted_labels):
     print("Total video length:", timedelta(seconds=len(running_predicted_labels)))
 
 
-def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, tmpdir=None):
+def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, tmpdir='.'):
     from cv2 import ORB_create, xfeatures2d, imread
 
     indexed_running_predicted_labels = np.argsort(running_predicted_labels)
@@ -208,7 +208,6 @@ def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxC
                 events[idx]["clipEndMs"] = scene_list_msec[sceneIdx]
 
             # probably want a flag that disables retention of tmp image files [ToDo]
-            if not tmpdir: tmpdir='.'
             dPath = join(tmpdir, splitext(basename(video_filename))[0])
             if not os.path.exists(dPath):
                 print("creating temp directory for image files: '%s'" % dPath)
@@ -341,8 +340,8 @@ def main():
     args = parser.parse_args()
 
     # for most args, just use args.{option}
-    dir_edits = args.dir_edits if (args.dir_edits) else args.dir_input
-    dir_temp = args.dir_temp if (args.dir_temp) else args.dir_edits
+    dir_edits = args.dir_edits if args.dir_edits else args.dir_input
+    dir_temp = args.dir_temp if args.dir_temp else dir_edits
 
     print("pwd: {}".format(os.getcwd()))
     print("args:", args)
@@ -361,6 +360,7 @@ def main():
     print("  dir_temp   : %s " % dir_temp)
 
     for d in [dir_edits, args.dir_input, dir_temp]:
+        print("Test: directory: %s" % d)
         if not os.path.isdir(d):
             print("** Error: directory does not exist: %s" % d)
             raise ValueError("Directory does not exist: %s" % d)
