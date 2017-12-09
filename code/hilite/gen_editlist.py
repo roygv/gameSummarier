@@ -6,6 +6,7 @@ import os
 from datetime import timedelta
 from os.path import isfile, join, abspath, expanduser, basename, splitext
 import pathlib
+import datetime
 
 import numpy as np
 
@@ -245,8 +246,8 @@ def writeSummaryClipsIndexToCSV(events, video_filename, dir_edits, csv_filename)
 
     for i in np.arange(10):
         if 'clipStartMs' in events[i]:
-            secondOffset.append(events[i]["clipStartMs"] / 1000)
-            timeToCapture.append((events[i]["clipEndMs"] - events[i]["clipStartMs"]) / 1000)
+            secondOffset.append(round(events[i]["clipStartMs"] / 1000,2))
+            timeToCapture.append(round((events[i]["clipEndMs"] - events[i]["clipStartMs"]) / 1000,2))
             # df.append({video_filename,events[i]["clipStartMs"]/1000,,(events[i]["clipEndMs"]-events[i]["clipStartMs"])/1000})
             print(events[i])
     df = pd.DataFrame({'fileName': video_filename,
@@ -313,7 +314,7 @@ def main():
     parser.add_argument('--dir_edits', metavar='{dir}', type=str, default=None,
                         help='output directory for edit lists (default: {dir_input})')
 
-    parser.add_argument('--dir_temp', metavar='{dir}', type=str, default=None,
+    parser.add_argument('--dir_temp', metavar='{dir}', type=str, default='temp',
                         help='output directory for temp jpg images (default: {dir_edits})')
 
     parser.add_argument('--save_clips', action='store_true',
@@ -343,6 +344,7 @@ def main():
     dir_edits = args.dir_edits if args.dir_edits else args.dir_input
     dir_temp = args.dir_temp if args.dir_temp else dir_edits
 
+    print('Start: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
     print("pwd: {}".format(os.getcwd()))
     print("args:", args)
     print("  args.dir_input  : %s " % args.dir_input)
@@ -359,8 +361,15 @@ def main():
     print("  dir_edits  : %s " % dir_edits)
     print("  dir_temp   : %s " % dir_temp)
 
+
+    for d in [dir_edits, dir_temp]:
+        print("Checking: directory: %s" % d)
+        if not os.path.isdir(d):
+            print("** Warning: directory does not exist; creating: %s" % d)
+            # go ahead and make output directories by default
+            pathlib.Path(d).mkdir(parents=True, exist_ok=True)
+
     for d in [dir_edits, args.dir_input, dir_temp]:
-        print("Test: directory: %s" % d)
         if not os.path.isdir(d):
             print("** Error: directory does not exist: %s" % d)
             raise ValueError("Directory does not exist: %s" % d)
@@ -406,7 +415,7 @@ def main():
         events = distinctEvent(video_file, running_predicted_labels, videoClip, fps, args.max_time, dir_temp)
         writeSummaryClipsIndexToCSV(events, video_file, dir_edits, csv_file)
 
-    print("============(done).")
+    print('Done: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
 
 
 if __name__ == '__main__':
