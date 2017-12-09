@@ -319,7 +319,7 @@ def main():
     parser.add_argument('--save_clips', action='store_true',
                         help='save the generated clips used to make final video [not implemented]')
 
-    parser.add_argument('--max_time', metavar='{seconds}', type=int, nargs=1, default=180,
+    parser.add_argument('--max_time', metavar='{seconds}', type=int, default=360,
                         help='max total time of final highlight video (in seconds) [not implemented]')
 
     parser.add_argument('--num_clips', metavar='N', type=int, default=None,
@@ -403,7 +403,6 @@ def main():
         running_predicted_labels = predict_interest(fft2, models)
         # doPlotGame(index, running_predicted_labels)
         # temp jpg files are written to dir_edits or dir_temp, if set
-        # def distinctEvent(video_filename, running_predicted_labels, videoClip, fps, maxClipLength, dir_temp):
         events = distinctEvent(video_file, running_predicted_labels, videoClip, fps, args.max_time, dir_temp)
         writeSummaryClipsIndexToCSV(events, video_file, dir_edits, csv_file)
 
