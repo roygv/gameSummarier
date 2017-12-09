@@ -75,9 +75,10 @@ def concat_clips(event_data, transitions=None, filenames=None, dir_out=".", dir_
         else:
             xclips = clip_list
 
-        num_highlights = len(clip_list)
+        #num_highlights = len(clip_list) # adds num highlights to filename
         file_basename = splitext(basename(video_path))[0]
-        final_clip_path = join(dir_out, file_basename + '_highlight_' + str(num_highlights) + '.mp4')
+        #final_clip_path = join(dir_out, file_basename + '_highlight_' + str(num_highlights) + '.mp4')
+        final_clip_path = join(dir_out, file_basename + '_highlight.mp4')
 
         # final_clip = concatenate_videoclips(clip_list, padding = fade_duration)
         final_clip = concatenate_videoclips(xclips)
