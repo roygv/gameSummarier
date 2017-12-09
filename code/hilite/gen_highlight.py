@@ -149,7 +149,7 @@ def main():
         print("** Error: video input directory not found: '%s'" % args.dir_input)
         raise ValueError("Video input directory not found: '%s'" % args.dir_input)
 
-    for d in [arg.dir_out]:  # originally had multiple output dirs
+    for d in [args.dir_out]:  # originally had multiple output dirs
         print("Checking: directory: %s" % d)
         if not os.path.isdir(d):
             print("** Warning: directory does not exist; creating: %s" % d)
