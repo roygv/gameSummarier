@@ -3,10 +3,12 @@
 import argparse
 import os
 from os.path import isfile, join, abspath, expanduser, basename, splitext
+import pathlib
 
 import matplotlib.pyplot as plt
 import matplotlib.style as ms
 import numpy as np
+import datetime
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -37,6 +39,7 @@ def load_edit_list(event_filename):
     return event_data
 
 
+#def concat_clips(event_data, transitions=None, filenames=None, dir_out=".", save_clips=False, dir_input=None):
 def concat_clips(event_data, transitions=None, filenames=None, dir_out=".", dir_input=None):
     clip_list = []
     video_path = None
@@ -69,7 +72,6 @@ def concat_clips(event_data, transitions=None, filenames=None, dir_out=".", dir_
 
     # last video_path from csv file
     if video_path:
-
         if transitions:
             xclips = [c.fadein(.25).fadeout(.25) for c in clip_list]
         else:
@@ -79,6 +81,19 @@ def concat_clips(event_data, transitions=None, filenames=None, dir_out=".", dir_
         file_basename = splitext(basename(video_path))[0]
         #final_clip_path = join(dir_out, file_basename + '_highlight_' + str(num_highlights) + '.mp4')
         final_clip_path = join(dir_out, file_basename + '_highlight.mp4')
+
+        #if save_clips:
+        #    clipDir=join(dir_out, file_basename)
+        #    if not exists(clipDir):
+        #       print("Creating clip directory: %s" % clipDir)
+        #       makedirs(clipDir, exist_ok=True)
+
+        #    for idx, event in enumerate(events_data[:10]):
+        #       eventClip = VideoFileClip(video_path).subclip(events_data['start'],event['end'])
+
+        #       eventClip.write_videofile(join(clipDir, "scene" + str(idx) + ".mp4"))
+        #       del eventClip.reader
+        #       del eventClip
 
         # final_clip = concatenate_videoclips(clip_list, padding = fade_duration)
         final_clip = concatenate_videoclips(xclips)
@@ -109,33 +124,40 @@ def main():
     parser.add_argument('-e', '--edit_list', metavar='{file}', type=str, default='clips.csv',
                         help='filename of clip edit list (default: clips.csv)')
 
-    parser.add_argument('-s', '--save_edits', action='store_true',
-                        help='save edit list (default: deleted afterwards) [not implemented]')
+    #parser.add_argument('-s', '--save_clips', action='store_true', default=False,
+    #                    help='save individual clips (default=false)')
 
     parser.add_argument('-t', '--trans', metavar='{effect}', choices=['fade', 'none'], default='fade',
-                        help='enable scene transitions between clips; options: "fade", "none"')
+                        help='transition between clips: options: {fade, none} (default: fade)')
 
     parser.add_argument('files', metavar='{files}', nargs='*',
-                        help='input video file names (regexp) in the edit list to use (default: uses all entries)')
+                        help='input video file names (regexp) from edit list to process (default: use all entries) [not implemented]')
 
     args = parser.parse_args()
 
+    print('Start: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
     print("pwd: {}".format(os.getcwd()))
     print("args:", args)
     print("  args.dir_input  : %s " % args.dir_input)
     print("  args.dir_out    : %s " % args.dir_out)
     print("  args.edit_list  : %s " % args.edit_list)
-    print("  args.save_edits : %s " % args.save_edits)
+    #print("  args.save_clips : %s " % args.save_clips)
     print("  args.trans      : %s " % args.trans)
     # print("  args.dir_temp   : %s " % args.dir_temp)
-
-    if not os.path.isdir(args.dir_out):
-        print("** Error: target directory not found: '%s'" % args.dir_out)
-        raise ValueError("Target directory not found: '%s'" % args.dir_out)
 
     if args.dir_input and not os.path.isdir(args.dir_input):
         print("** Error: video input directory not found: '%s'" % args.dir_input)
         raise ValueError("Video input directory not found: '%s'" % args.dir_input)
+
+    for d in [arg.dir_out]:  # originally had multiple output dirs
+        print("Checking: directory: %s" % d)
+        if not os.path.isdir(d):
+            print("** Warning: directory does not exist; creating: %s" % d)
+            pathlib.Path(d).mkdir(parents=True, exist_ok=True)
+
+    if not os.path.isdir(args.dir_out):
+        print("** Error: target directory not found: '%s'" % args.dir_out)
+        raise ValueError("Target directory not found: '%s'" % args.dir_out)
 
     if not os.path.exists(args.edit_list):
         print("** Error: edit list not found: '%s'" % args.edit_list)
@@ -147,7 +169,7 @@ def main():
                  args.dir_out,
                  args.dir_input)
 
-    print("Done.")
+    print('Done: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
 
 
 if __name__ == '__main__':
