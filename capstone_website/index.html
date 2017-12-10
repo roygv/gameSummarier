@@ -10,7 +10,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<!--     <link href="css/custom.css" rel="stylesheet"> -->
+    <link href="css/custom.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -27,7 +27,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#Problem">Problem</a></li> 
+            <li><a href="#Problem">Context</a></li> 
             <li><a href="#Solution">Solution</a></li>
             <li><a href="#Roadmap">Roadmap</a></li>
             <li><a href="#Team">Team</a></li>
@@ -49,15 +49,15 @@
       <div class="row">
         <div class="col-md-4 text-center">
           <h3>Too Much Great Content</h3>
-          <p>Sports fans currently have far more exciting footage to watch than every before. Unfortunately, they don't have the time to watch it all.</p>
+          <p1>Sports fans currently have far more exciting footage to watch than every before. Unfortunately, they don't have the time to watch it all.</p1>
       </div>
       <div class="col-md-4 text-center">
         <h3>Easy-to-Use Algorithm</h3>
-        <p>Our model identifies the most exciting moments from recorded sports matches, and classifies them so we can assemble higher potency, more compact, content.</p>
+        <p1>Our model identifies the most exciting moments from recorded sports matches, and classifies them so we can assemble higher potency, more compact, content.</p1>
       </div>
       <div class="col-md-4 text-center">
         <h3>A Better Way to Watch</h3>
-        <p>Sports Highlighter generates short-form games that allow fans to watch more of the moments that count, while staying fully immersed in the event.</p>
+        <p1>Sports Highlighter generates short-form games that allow fans to watch more of the moments that count, while staying fully immersed in the event.</p1>
       </div>
     </div>
     </div>
@@ -94,59 +94,138 @@
 <!--     <div class="container marketing">
     <h3></h3> -->
 
-    <div class="container-fluid text-center bg-grey">
-      <h1>The Problem</h1>
+    <div class="container-fluid text-center">
+      <h6>The Context</h6>
+      <p class="lead">Sports are very big business.</p>
       <div class="row text-center">
         <div class="col-sm-3">
-          <div class="thumbnail">
-            <img src="img/brian_schneider.jpg" alt="Paris">
-            <p><strong>Incredible Revenue</strong></p>
+          <div class="img">
+            <img src="img/soccer-money-2.jpg" alt="That is a lot of money." style="width:90%">
+            <p><strong>Ample Revenue</strong></p>
             <p>The sports industry grosses between $600-700 billion per year.</p>
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="thumbnail">
-            <img src="img/brian_schneider.jpg" alt="New York">
+          <div class="img">
+            <img src="img/global.jpeg" alt="A billion fans can't be wrong." style="width:90%">
             <p><strong>Global Market</strong></p>
             <p>Over a billion active sports fans and a growing mobile market.</p>
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="thumbnail">
-            <img src="img/brian_schneider.jpg" alt="San Francisco">
-            <p><strong>Feverish Desire</strong></p>
+          <div class="img">
+            <img src="img/6f656fbcf1c306df3fe36853187f5baa.jpg" alt="Fans want more." style="width:90%">
+            <p><strong>Insatiable Fanbase</strong></p>
             <p>Sports fans watch 8.1 hours of sports footage each week.</p>
           </div>
         </div>
         <div class="col-sm-3">
-          <div class="thumbnail">
-            <img src="img/brian_schneider.jpg" alt="San Francisco">
+          <div class="img">
+            <img src="img/time.jpeg" alt="But there's too much content." style="width:90%">
             <p><strong>Not Enough Time</strong></p>
             <p>Viewers are forced to make tradeoffs and can't watch all events they want.</p>
           </div>
         </div>
-        <h4>With the mobile market growing across the world, and with more fans preferring to watch sports online, there is a clear opportunity to reduce the time it takes to watch great content.<br></br>Our goal is to create incredible short-form content that takes advantage of this opportunity.</h4>
+        <div class="container">
+        <h4>Our goal is to create incredible short-form sports content that gives viewers the high quality footage in less time.</h4>
+      </div>
     </div>
+  </div>
 
+    <div class="container text-center">
       <div id="Solution"
       <div class="row featurette">
-          <h3 class="featurette-heading">Our Solution</h3>
-          <p class="lead">Roy's Thoughts: #1: How you identify and classify key events in and features from a game? #2: How do we determine what is interesting and what is not? Chirons, audio, crowd reaction, scene detection, k-means. Walk through why we chose what we chose. Think of the crowd as a language we are trying to codify. #3: Rank the most interesting moments. #4: Creating a compelling clip that captures the content concisely. #5: Delivery. Run model on new video, collect end points, and based on # of points or total length we encode a short-form video that the user can watch. #6: Technology used and features used and algorithms used and pipeline if applicable -- how we solved the problem. We chose soccer -- let us tell you why. #7: Demo if applicable.<br></br>Pre-existing paragraph: Provide great short-form content that surpasses the fidelity of sports highlights and gives sports fans a short, but immersive, foray into their preferred sporting events. This section will become rife with detail about our process, model, and pipeline.<br></br>I suspect we will want a visualization of our data pipeline here, as well as images for PCA and error breakdowns. Then we will want to show "analysis of a game" and show top highlights I also like putting "technologies used" in this section. This is where we should link to Jupyter Notebook.</p>
-      </div>
-      
-      <div id="Roadmap"
-      <div class="row featurette">
-          <h3 class="featurette-heading">Roadmap</h3>
-          <p class="lead">Roy's Thoughts: #1: Delivery mechanism. The PVR option -- Best on PVR or "on the box" or used by the owner of the content server. Install on content owner's site -- Perhaps a subscription service, or a benefit for a paid service. Summary factory and client app -- download the content on a massive scale and create summary files and serve index files to a browser app. Curated stream -- Snapchat/Facebook feed option #2: Algorithm improvements. #3: Tailor clips to the time the user has available. Get more data. #4 Re-emphasize the value of the algorithm and close with compelling outro for the project.<br></br>This could be a paragraph or a list. On it would be -- more data and tapping into neural networks to improve classification; increased fidelity of piecing stories together via algorithm improvements and scene detection and chirons and etc. Getting the games to be great, to make selling [or open sourcing] the algorithm more appealing. We could have a separate tab for this, but we should have a "Why Sports Highlighter" section that re-emphasizes why we think the project is so promising and ties together everything we presented above.</p>
+          <h6 class="featurette-heading">The Solution</h6>
+          <p class="lead">Part I. Classification</p>
+          <div class="row text-center">
+        <div class="col-lg-4">
+          <div class="img">
+            <img src="img/sFFT5.png" alt="That is a lot of money." style="width:75%" height="250" width="400">
+            <p><strong>Fourier Fast Transform</strong></p>
+            <p>Magnitude and pitch measured for each second of footage for over 30 complete soccer games.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="img">
+            <img src="img/pca_distribution.png" alt="A billion fans can't be wrong." style="width:75%" height="250" width="300">
+            <p><strong>Principle Component Analysis</strong></p>
+            <p>FFT data transformed into 170-dimensions via PCA to allow for classification and to avoid overfitting.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="img">
+            <img src="img/ens_conf_matrix.png" alt="Fans want more." style="width:75%" height="250" width="300">
+            <p><strong>Ensemble Method</strong></p>
+            <p>Weighted model anchored by Gradient Boosting, K-Nearest Neighbors, Random Forest and SVM classifiers.</p>
+          </div>
+        </div>
+          </div>
           <div class="container">
-            <h4>Output of Clips from an Example Game</h4>
+        <h4>Over 93% accuracy when trying to predict goals vs. non-goals.</br>90% accuracy when including missed goals.</h4>
+      </div>
+      </div>
+      <div class="container-fluid text-center">
+        <p class="lead">Part II. What is Interesting and What is Not?</p>
+        <div class="row text-center">
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/Click-on-text-in-scene-graph-chyron-lyric-897x679.jpg" alt="Chyrons." style="width:75%" height="200" width="200">
+            <p><strong>Chyrons</strong></p>
+            <p>Text extraction from images gives us clarity around when scores happen.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/Audio-peak-indicator-1080x675.jpg" alt="Audio." style="width:75%" height="200" width="200">
+            <p><strong>Audio</strong></p>
+            <p>Sound dynamics could reveal when relevant plays occur.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/article-0-1F7E3A2400000578-528_634x466.jpg" alt="Crowd Reaction." style="width:75%" height="200" width="200">
+            <p><strong>Crowd Reaction</strong></p>
+            <p>Crowd volume at key moments could reveal major events.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/detect.jpg" alt="That is a lot of money." style="width:75%" height="200" width="200">
+            <p><strong>Scene Detection</strong></p>
+            <p>Understanding video transitions helps to identify key moments when creating video clips.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/kmeans1.png" alt="K-means." style="width:75%" height="200" width="200">
+            <p><strong>K-means Clustering</strong></p>
+            <p>A look beyond goals and non-goals to understand predictive features for other meaningful events, like yellow cards, missed goals and injuries.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="img">
+            <img src="img/audiosourceseparation_03.png" alt="Audio Separation." style="width:75%" height="200" width="200">
+            <p><strong>Audio Separation</strong></p>
+            <p>Breaking out the commentator from the crowd to increase feature fidelity.</p>
+          </div>
+        </div>
+          </div>
+      </div>
+      <div class="container">
+            <p class="lead">Part III. Finding a Compelling Clip</p>
+            <h3>Sports Highlighter takes into account a rolling 10-second average of FFT.</h3>
+            <div class="img">
+              <img src="img/rollingfft.png" alt="Audio Separation." style="width:60%">
+            </div>
             <p>Below are the specific moments our algorithm determined are likely highlights, in order of likelihood from top-to-bottom.</p>            
-            <table class="table">
+            <table class="table text-left">
             <thead>
               <tr>
                 <th>Clip Number</th>
-                  <th>Start time</th>
-                  <th>End time</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
                   <th>Link</th>
               </tr>
             </thead>
@@ -155,31 +234,88 @@
               <td>#1</td>
               <td>15</td>
               <td>29</td>
-              <td>View</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABbrRfyiL-ICYPgpGGgW6YOa/test%20BAY-FRE%201st%20half%20ENG/scene0.mp4?dl=0" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#2</td>
               <td>1500</td>
               <td>1525</td>
-              <td>View</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AAD4F46g6MaUnkSuH8GJWufJa/test%20BAY-FRE%201st%20half%20ENG/scene1.mp4?dl=0" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#3</td>
               <td>2500</td>
               <td>2518</td>
-              <td>View</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADcMFxkZqnF8FlCpmZnLtkna/test%20BAY-FRE%201st%20half%20ENG/scene2.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+              <td>#4</td>
+              <td>15</td>
+              <td>29</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADjP0gBPfkBVscVgjfeZMQna/test%20BAY-FRE%201st%20half%20ENG/scene3.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#5</td>
+              <td>1500</td>
+              <td>1525</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AACcN-wzNjPB7u1-WGocHGF1a/test%20BAY-FRE%201st%20half%20ENG/scene4.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#6</td>
+              <td>2500</td>
+              <td>2518</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AACotiE5q1xn8WfulEIzMxlma/test%20BAY-FRE%201st%20half%20ENG/scene5.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+              <td>#7</td>
+              <td>15</td>
+              <td>29</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADM7pbp2_NHLk4R8bAeZ02fa/test%20BAY-FRE%201st%20half%20ENG/scene6.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#8</td>
+              <td>1500</td>
+              <td>1525</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AACoLmsSZusY7EoiyjiVpmAoa/test%20BAY-FRE%201st%20half%20ENG/scene7.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#9</td>
+              <td>2500</td>
+              <td>2518</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADRfLcP7ADadBIAJW7uhle9a/test%20BAY-FRE%201st%20half%20ENG/scene8.mp4?dl=0" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#10</td>
+              <td>2500</td>
+              <td>2518</td>
+              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADIv5FYScXeH9AhFQBfyICea/test%20BAY-FRE%201st%20half%20ENG/scene9.mp4?dl=0" target="_blank">View</a></td>
             </tr>
           </tbody>
         </table>
       </div>
-        </div>
+    </div>
+    <div class="container-fluid text-center">
+            <p class="lead">Part IV. Creating a Quality Highlight Video</p>
+            <h3>Without further ado...</h3>
+            <div>
+            <video width="720" height="576" controls>
+              <source src="img/test_BAY-FRE_1st_half_ENG_highlight.mp4" type="video/mp4">
+            </video>
+          </div>
+      </div>
+    </div>
       
+    <div class="container text-center">
+      <div id="Roadmap"
+      <div class="row featurette text-center">
+          <h6 class="featurette-heading">Roadmap</h6>
+          <p class="lead">Roy's Thoughts: #1: Delivery mechanism. The PVR option -- Best on PVR or "on the box" or used by the owner of the content server. Install on content owner's site -- Perhaps a subscription service, or a benefit for a paid service. Summary factory and client app -- download the content on a massive scale and create summary files and serve index files to a browser app. Curated stream -- Snapchat/Facebook feed option #2: Algorithm improvements. #3: Tailor clips to the time the user has available. Get more data. #4 Re-emphasize the value of the algorithm and close with compelling outro for the project.<br></br>This could be a paragraph or a list. On it would be -- more data and tapping into neural networks to improve classification; increased fidelity of piecing stories together via algorithm improvements and scene detection and chirons and etc. Getting the games to be great, to make selling [or open sourcing] the algorithm more appealing. We could have a separate tab for this, but we should have a "Why Sports Highlighter" section that re-emphasizes why we think the project is so promising and ties together everything we presented above.</p>
+    </div>
+  </div>
       <div id="Team"
-      <div class="container-fluid text-center bg-grey">
-          <h3 class="featurette-heading">Our Team</h3>
+      <div class="container-fluid text-center">
+          <h5 class="featurette-heading">Our Team</h5>
           <p class="lead">Sports Highlighter was the brainchild of Roy Gvirtsman, and was further developed by fellow MIDS graduate students from the University of California-Berkeley.</p>
         <div class="row-md-3">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/roy-gvirtsman-4422193/">
@@ -188,7 +324,7 @@
                             </div>
 
                             <div class="card-content">
-                                <h4 class="card-title">Roy Gvirtsman</h4>
+                                <h3 class="card-title">Roy Gvirtsman</h3>
                                 <div class="footer">
                                     <a href="https://www.linkedin.com/in/roy-gvirtsman-4422193/" class="btn btn-just-icon btn-simple btn-linkedin" target="_blank">
                                         <i class="fa fa-linkedin"></i>
@@ -199,7 +335,7 @@
                             
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/michaelnielsen321/">
@@ -208,7 +344,7 @@
                             </div>
 
                             <div class="card-content">
-                                <h4 class="card-title">Michael Nielsen</h4>
+                                <h3 class="card-title">Michael Nielsen</h3>
                                 <div class="footer">
                                     <a href="https://www.linkedin.com/in/michaelnielsen321/" class="btn btn-just-icon btn-simple btn-linkedin"><i
                                             class="fa fa-linkedin"></i></a>
@@ -219,7 +355,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4" id="team">
+                    <div class="col-md-3" id="team">
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/bschneid/">
@@ -228,7 +364,7 @@
                             </div>
 
                             <div class="card-content">
-                                <h4 class="card-title">Brian Schneider</h4>
+                                <h3 class="card-title">Brian Schneider</h3>
                                 <div class="footer">
                                     <a href="https://www.linkedin.com/in/bschneid/" class="btn btn-just-icon btn-simple btn-linkedin"><i
                                             class="fa fa-linkedin"></i></a>
