@@ -37,8 +37,9 @@
     </nav>
     <div class="jumbotron text-center">
       <div class="container">
-        <h1></h1>
-        <p>Using data science to put great sports footage into fans' hands, with less time commitment.</p>
+        <div class="tester">
+        <h1 align="center" style="font-size:400%;">See more of the sports you love to watch.</h1>
+      </div>
       </div>
     </div>
     <div class="row">
@@ -48,7 +49,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 text-center">
-          <h3>Too Much Great Content</h3>
+          <h3>Not Enough Time</h3>
           <p1>Sports fans currently have far more exciting footage to watch than every before. Unfortunately, they don't have the time to watch it all.</p1>
       </div>
       <div class="col-md-4 text-center">
@@ -93,16 +94,16 @@
       </div><!-- /.row -->
 <!--     <div class="container marketing">
     <h3></h3> -->
-
+<div id="Problem">
     <div class="container-fluid text-center">
       <h6>The Context</h6>
-      <p class="lead">Sports are very big business.</p>
+      <p class="lead">We can increase the value of sports content by distilling games down to their essence.</p>
       <div class="row text-center">
         <div class="col-sm-3">
           <div class="img">
             <img src="img/soccer-money-2.jpg" alt="That is a lot of money." style="width:90%">
             <p><strong>Ample Revenue</strong></p>
-            <p>The sports industry grosses between $600-700 billion per year.</p>
+            <p>Sports media grosses over $25 billion per year.</p>
           </div>
         </div>
         <div class="col-sm-3">
@@ -127,27 +128,66 @@
           </div>
         </div>
         <div class="container">
-        <h4>Our goal is to create incredible short-form sports content that gives viewers the high quality footage in less time.</h4>
+        <h4>Core belief: long sports videos can be automatically summarized.</br></br>Our goal is to create incredible short-form sports content that gives viewers the high quality footage in less time.</h4>
       </div>
     </div>
   </div>
-
-    <div class="container text-center">
-      <div id="Solution"
+  <div class="container text-center">
+    <h6>Background: The Sports Landscape</h6>
+    <p class="lead">Soccer represents the ideal entry point for the project.</p>
+    <div class="row">
+      <div class="col-lg-6 text-center">
+        <div class="img">
+          <img src="img/soccermoney.png" alt="That is a lot of money." style="width:95%" height="300" width="550">
+          </img>
+        </div>
+      </div>
+       <div class="col-lg-6 text-left">
+        <ul>
+          <li>Soccer constitutes the largest sports market in the world.</li>
+          <li>There are multiple ways to access a large volume of soccer games, for free, in digital form.</li>
+        </ul>
+      </div>
+    </div>  
+    <h4>How might we best unlock the hidden language of a soccer game?</h4>   
+        </div>
+      </div>
+  </div>
+    <div class="container-fluid text-center">
+      <div id="Solution">
       <div class="row featurette">
-          <h6 class="featurette-heading">The Solution</h6>
+          <h6 class="featurette-heading">Algorithm Steps</h6>
+          <p class="lead">The path from long-form to short-form content.</p>
+          <div class="row">
+          <div class="col-lg-12 text-left">
+            <ol>
+              <li>Assess each second’s likelihood to be important</li>
+              <li>Create a running average of subsequent importance</li>
+              <li>Find top N overall events</li>
+              <li>Use scene detection & object counting to determine clip boundaries</li>
+              <li>Determine # clips used in final video (running sum of length)</li>
+              <li>Encode video by assembling clips in chronological order</li>
+          </ol>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+    <div class="container text-center">
+      <div class="row featurette">
           <p class="lead">Part I. Classification</p>
-          <div class="row text-center">
+          <h3>Calculating the probability of each second being a meaningful event.</h3>
+          <div class="row-lg-4 text-center">
         <div class="col-lg-4">
           <div class="img">
-            <img src="img/sFFT5.png" alt="That is a lot of money." style="width:75%" height="250" width="400">
-            <p><strong>Fourier Fast Transform</strong></p>
-            <p>Magnitude and pitch measured for each second of footage for over 30 complete soccer games.</p>
+            <img src="img/2017_12_10_16_40_01_Greenshot.png" alt="That is a lot of money." style="width:75%" height="250" width="400">
+            <p><strong>Fast Fourier Transform</strong></p>
+            <p>Frequency and amplitude measured for each second of footage for over 30 complete soccer games.</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="img">
-            <img src="img/pca_distribution.png" alt="A billion fans can't be wrong." style="width:75%" height="250" width="300">
+            <img src="img/2017_12_10_16_52_46_Greenshot.png" alt="A billion fans can't be wrong." style="width:75%" height="250" width="300">
             <p><strong>Principle Component Analysis</strong></p>
             <p>FFT data transformed into 170-dimensions via PCA to allow for classification and to avoid overfitting.</p>
           </div>
@@ -161,11 +201,13 @@
         </div>
           </div>
           <div class="container">
-        <h4>Over 93% accuracy when trying to predict goals vs. non-goals.</br>90% accuracy when including missed goals.</h4>
+        <h4 class="test">Over 93% accuracy when trying to predict goals vs. non-goals.</br>90% accuracy when including missed goals.</h4>
       </div>
       </div>
+    </div>
+  </div>
       <div class="container-fluid text-center">
-        <p class="lead">Part II. What is Interesting and What is Not?</p>
+        <p class="lead">Part II. Potential Features</p>
         <div class="row text-center">
         <div class="col-md-3">
           <div class="img">
@@ -178,14 +220,14 @@
           <div class="img">
             <img src="img/Audio-peak-indicator-1080x675.jpg" alt="Audio." style="width:75%" height="200" width="200">
             <p><strong>Audio</strong></p>
-            <p>Sound dynamics could reveal when relevant plays occur.</p>
+            <p>Sound dynamics between the announcers and the crowd could reveal when relevant plays occur.</p>
           </div>
         </div>
         <div class="col-md-3">
           <div class="img">
-            <img src="img/article-0-1F7E3A2400000578-528_634x466.jpg" alt="Crowd Reaction." style="width:75%" height="200" width="200">
-            <p><strong>Crowd Reaction</strong></p>
-            <p>Crowd volume at key moments could reveal major events.</p>
+            <img src="img/tyzdb1gaumgfc6kgaqs2.jpg" alt="Crowd Reaction." style="width:75%" height="200" width="200">
+            <p><strong>Closed Caption Text</strong></p>
+            <p>Natural Language Processing on text viewers see in a game.</p>
           </div>
         </div>
       </div>
@@ -193,7 +235,7 @@
         <div class="col-md-3">
           <div class="img">
             <img src="img/detect.jpg" alt="That is a lot of money." style="width:75%" height="200" width="200">
-            <p><strong>Scene Detection</strong></p>
+            <p><strong>Video Editing</strong></p>
             <p>Understanding video transitions helps to identify key moments when creating video clips.</p>
           </div>
         </div>
@@ -213,13 +255,14 @@
         </div>
           </div>
       </div>
-      <div class="container">
+      <div class="container text-center">
             <p class="lead">Part III. Finding a Compelling Clip</p>
-            <h3>Sports Highlighter takes into account a rolling 10-second average of FFT.</h3>
-            <div class="img">
-              <img src="img/rollingfft.png" alt="Audio Separation." style="width:60%">
+<!--             <h3>Sports Highlighter takes into account a rolling 10-second average of FFT.</h3> -->
+            <div class="img text-left">
+              <img src="img/2017_12_10_17_33_14_Greenshot.png" alt="Audio Separation." style="width:60%">
+              <img src="img/Screen Shot 2017-12-10 at 5.35.23 PM.png" alt="Audio Separation." style="width:35%">
             </div>
-            <p>Below are the specific moments our algorithm determined are likely highlights, in order of likelihood from top-to-bottom.</p>            
+            <p></br></br>Below are the specific moments our algorithm determined are likely highlights, in order of importance.</p>            
             <table class="table text-left">
             <thead>
               <tr>
@@ -232,55 +275,61 @@
           <tbody>
             <tr>
               <td>#1</td>
-              <td>15</td>
-              <td>29</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADmBR1R6mpjb7N8Vauh6WUya/test%20ECU%20V%20ARG%201H%20ESP/scene1.mp4?dl=0" target="_blank">View</a></td>
+              <td>2549</td>
+              <td>2658</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene0.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#2</td>
-              <td>1500</td>
-              <td>1525</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AACDj7-bQHjXrGjujzJLYtEoa/test%20ECU%20V%20ARG%201H%20ESP/scene2.mp4?dl=0" target="_blank">View</a></td>
+              <td>2003</td>
+              <td>2042</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene1.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#3</td>
-              <td>2500</td>
-              <td>2518</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABJsC9vpY4_IahBnskEZ3Xla/test%20ECU%20V%20ARG%201H%20ESP/scene3.mp4?dl=0" target="_blank">View</a></td>
+              <td>1574</td>
+              <td>1682</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene2.mp4" target="_blank">View</a></td>
             </tr>
               <td>#4</td>
-              <td>15</td>
-              <td>29</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABV3VaUTZ5cbddrIwfS0bNpa/test%20ECU%20V%20ARG%201H%20ESP/scene4.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene3.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#5</td>
-              <td>1500</td>
-              <td>1525</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABrgjphd4eH1G25IPzUCD2Qa/test%20ECU%20V%20ARG%201H%20ESP/scene5.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene4.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#6</td>
-              <td>2500</td>
-              <td>2518</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABs-7znLZe3kOXJ8ZBv8M2Ya/test%20ECU%20V%20ARG%201H%20ESP/scene6.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene5.mp4" target="_blank">View</a></td>
             </tr>
               <td>#7</td>
-              <td>15</td>
-              <td>29</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AACwocsEVW1pqmkwflZSUbKVa/test%20ECU%20V%20ARG%201H%20ESP/scene7.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene6.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#8</td>
-              <td>1500</td>
-              <td>1525</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABJwh6aynRtuHmpBhh7aUMma/test%20ECU%20V%20ARG%201H%20ESP/scene8.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene7.mp4" target="_blank">View</a></td>
             </tr>
             <tr>
               <td>#9</td>
-              <td>2500</td>
-              <td>2518</td>
-              <td><a href="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AABEgb716_P171RY67ijmwGia/test%20ECU%20V%20ARG%201H%20ESP/scene9.mp4?dl=0" target="_blank">View</a></td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene8.mp4" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>#10</td>
+              <td>tbd</td>
+              <td>tbd</td>
+              <td><a href="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/scene9.mp4" target="_blank">View</a></td>
             </tr>
           </tbody>
         </table>
@@ -291,7 +340,7 @@
             <h3>Without further ado...</h3>
             <div>
             <video width="720" height="576" controls>
-              <source src="http://people.ischool.berkeley.edu/~michael.nielsen/test-ECU-V-ARG-1H-ESP_highlight.mp4" type="video/mp4">
+              <source src="http://people.ischool.berkeley.edu/~michael.nielsen/w210/test_sam_juv_2nd_half/test_sam_juv_2nd_half_highlight.mp4" type="video/mp4">
             </video>
           </div>
       </div>
@@ -325,6 +374,7 @@
           </div>
         </div>
         <div class="row text-center">
+          <p class="lead">Priorities: Next 3 Months</p>
         <div class="col-sm-2">
           <div class="img">
             <img src="img/AAEAAQAAAAAAAAYLAAAAJDBlN2RmOTk4LWI2MzItNDlmNy04M2UzLWQ3YjlkZTZlYTRjZg.jpg" alt="Chyrons." style="width:75%" height="120" width="120">
