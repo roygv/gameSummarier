@@ -52,24 +52,28 @@
 .row-lg-4 {
     margin-top: 80px;
 }
-//h2 {
-//    margin-bottom: 100px;
-//    font-size: 60px;
-//}
-//h5 {
-//    margin-bottom: 30px;
-//    font-size: 60px;
-//}
-//h4 {
-//    margin-bottom: 80px;
-//    margin-left: 150px;
-//    margin-right: 150px;
-//    font-size: 24px;
-//}
-//h6 {
-//    margin-bottom: 20px;
-//    font-size: 60px;
-//}
+
+/*
+ * h2 {
+ *     margin-bottom: 100px;
+ *     font-size: 60px;
+ * }
+ * h5 {
+ *     margin-bottom: 30px;
+ *     font-size: 60px;
+ * }
+ * h4 {
+ *     margin-bottom: 80px;
+ *     margin-left: 150px;
+ *     margin-right: 150px;
+ *     font-size: 24px;
+ * }
+ * h6 {
+ *     margin-bottom: 20px;
+ *     font-size: 60px;
+ * }
+ */
+
 .row-md-3 {
     margin-top: 50px;
 }

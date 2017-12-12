@@ -8,6 +8,29 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+	<link rel="apple-touch-icon" href="favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="favicon-144.png">
+	<meta name="msapplication-config" content="browserconfig.xml">
+
+
     </head>
     <body>
 
@@ -17,15 +40,14 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Sports Highlighter</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#Problem">Context</a></li>
+                    <ul class="nav navbar-nav navbar-right" style="font-size:25px" >
+                        <li><a href="#Context">Context</a></li>
                         <li><a href="#Solution">Solution</a></li>
+                        <li><a href="#Demo">Demo</a></li>
                         <li><a href="#Roadmap">Roadmap</a></li>
                         <li><a href="#Team">Team</a></li>
                     </ul>
@@ -36,7 +58,7 @@
         <div class="jumbotron text-center">
             <div class="container">
                 <div class="tester">
-                    <h1 align="center" style="font-size:400%;">
+                    <h1 align="center" style="font-size:400%">
 
                         See more of the sports you love to watch.
 
@@ -75,7 +97,7 @@
             </div>
         </div>
 
-        <div id="Problem"> <br/> <br/> <br/>
+        <div id="Context"> <br/> <br/> <br/>
             <div class="container-fluid text-center">
                 <h1 class="featurette-heading">The Context</h1>
                 <p class="lead"> We can increase the value of sports content by distilling games down to their essence
@@ -126,8 +148,8 @@
 
                     <br/><br/>
 
-                    Our goal is to create incredible short-form sports content that gives
-                    viewers the high quality footage in less time.
+                     Our goal is to create incredible short-form sports content that gives
+                    viewers high quality footage in less time.
 
                 </div>
 
@@ -219,32 +241,42 @@
 
 
 
-
-
-        <div id="Solution">  <br/> <br/> <br/>
+        <div id="Solution">   <br/> <br/> <br/>
             <div class="container text-center">
                 <div class="row featurette">
-
                     <h1 class="featurette-heading">Algorithm Steps</h1>
 
                     <p class="lead">The path from long-form to short-form content
                     </p>
 
-                    <div class="text-lg-4 text-left">
-                        <ul>
+                <div class="row text-left">
+                            <ul>
+
                             <li>Assess each second’s likelihood to be important</li>
                             <li>Create a running average of subsequent importance</li>
-                            <li>Find top N overall events</li>
+                            <li>Find top events by probability </li>
                             <li>Use scene detection &amp; object counting to determine clip boundaries</li>
                             <li>Determine # clips used in final video (running sum of length)</li>
                             <li>Encode video by assembling clips in chronological order</li>
-                        </ul>
 
-                    </div>
+                            </ul>
+                  </div>
+                <div class="row text-left">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                  </div>
+
                 </div>
             </div>
-
         </div>
+
+
+
+
         <div class="container-fluid text-center">
             <div class="row featurette">
 
@@ -287,12 +319,6 @@
         </div>
 
 
-
-
-
-
-
-
         <!-- From Roy:
             Add timestamp information by highlight
             1:# Peak: 0:52:06 Value: 1.0 Scenes: 13      0:51:51 - 0:52:06  #1  0:51:31 - 0:52:05
@@ -329,7 +355,40 @@
         -->
 
 
+
         <div class="container text-center">
+            <div id="Boundaries">   <br/> <br/> <br/>
+                <div class="row featurette">
+                    <h1 class="featurette-heading">Finding Boundaries</h1>
+                    <p class="lead">Picking the best start/stop points for a clip</p>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
+                        <div class="col-lg-12 text-center">
+                             <div class="text-left">
+                                <ul>
+                                <li>  Start from peak
+                                </li>
+                                <li>  Find the lowest points on both sides
+                                </li>
+                                <li>  Find the first scene that starts at least 30 seconds before the peak.
+                                </li>
+                                <li>  Pick the earliest of the 2 &amp; 3
+                                </li>
+                                <li>  Find the first scene after the peak with over 100 objects (using SURF)
+                                </li>
+                                <li>  Pick the latest of 2 &amp; 5 (scene end)
+                                </li>
+                                <ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid text-center">
 
             <h1 class="featurette-heading">Finding a Compelling Clip</h1>
 
@@ -344,8 +403,10 @@
                 </div>
 
             </div>
+         </div>
 
 
+        <div class="container text-center">
             <div class="row text-center">
                 <div class="col-md-12">
 
@@ -357,7 +418,7 @@
 
                         <table class='cliptable'>
                             <thead>
-                                <tr bgcolor="#e3e9f4">
+                                <tr bgcolor="#eeeeee">
                                     <th>Ranking</th>
                                     <th>Highlight&nbsp;Clip</th>
                                     <th>Start&nbsp;Time&nbsp;&rarr;&nbsp;End&nbsp;Time</th>
@@ -496,11 +557,13 @@
                             </tbody>
                         </table>
                     </div>
-                </div><!-- Michael: here is where we want to add scene boundary detection slide-->
+                </div>
             </div>
         </div>
 
+
         <div class="container-fluid text-center">
+        <div id="Demo">   <br/> <br/> <br/>
             <h1 class="featurette-heading">Creating a Quality Highlight Video</h1>
             <p class="lead">The generated video highlight</p>
 
@@ -513,8 +576,9 @@
                                 Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 2486 kb/s, 58.82 fps, 58.82 tbr, 11764 tbn, 117.64 tbc
                                 <video width="720" height="576" controls
                             -->
-                                    <video width="720" controls
+                                    <video width="720"
                                            poster="img/posters/test_sam_juv_2nd_half_highlight.png"
+                                           controls>
                                         <source src="video/test_sam_juv_2nd_half_highlight.mp4" type="video/mp4">
                                             Your browser does not support the video tag.
                                     </video>
@@ -523,71 +587,9 @@
                 </div>
             </div>
         </div>
-
-
-
-
-        <div class="container text-center">
-            <div id="Boundaries">   <br/> <br/> <br/>
-                <div class="row featurette">
-                    <h1 class="featurette-heading">Finding Boundaries</h1>
-                    <p class="lead">Picking the best start/stop points for a clip</p>
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
-                        </div>
-
-
-                        <div class="col-lg-12 text-left">
-                            <!-- any bullet points? -->
-                            <!--
-                                <ul>
-
-                                <li> one
-                                </li>
-
-                                <li> two
-                                </li>
-
-                                <li> three
-                                </li>
-                                </ul>
-                            -->
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
-
-
-        <!--
-            Next Steps, duplicate
-        <div class="container-fluid text-center">
-            <div id="Roadmap">   <br/> <br/> <br/>
-                <div class="row featurette">
-                    <h1 class="featurette-heading">Next Steps</h1>
-                    <p class="lead">The path from long-form to short-form content
-                    </p>
-                    <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <ul>
-                                <li>Assess each second’s importance probability</li>
-                                <li>Calculate running average of subsequent importance</li>
-                                <li>Find top <i>N</i> overall events</li>
-                                <li>Determine clip boundaries via scene detection, object counting</li>
-                                <li>Limit clips included in final video (by total length)</li>
-                                <li>Generate final video by assembling clips in chronological order</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
 
         <!-- TEMPLATE FOR NEW SECTIONS
             <div class="container-fluid text-center">
@@ -616,8 +618,8 @@
             </div>
         -->
 
-        <div id="NextSteps2">   <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+        <div id="Roadmap">   <br/> <br/> <br/>
+            <div class="container text-center">
                 <div class="row featurette">
                     <h1 class="featurette-heading">Next Steps</h1>
                     <p class="lead">Iteratively improving the product, building out the pipeline
@@ -640,13 +642,19 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <br />
+                        <br />
+                    </div>
+
                 </div>
             </div>
         </div>
 
 
         <div id="Deliver">  <br/> <br/> <br/>
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Delivering Sports Summaries to Consumers</h1>
@@ -679,7 +687,7 @@
 
 
         <div id="General">  <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+            <div class="container text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Generalizability to other sports</h1>
@@ -697,7 +705,7 @@
                                     <ul>
                                         <li> fooball: drive leading up to score</li>
                                         <li> basketball: short, stand-alone clips </li>
-                                        <li> golf: include the quiet prior to the highlight  </li>
+                                        <li> golf: include silence prior to the highlight  </li>
                                     </ul>
                                 </li>
 
@@ -718,7 +726,7 @@
 
 
         <div id="abouttime">  <br/> <br/> <br/>
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Sports Summary: It's about <i>Time</i></h1>
@@ -838,7 +846,7 @@
 
 
         <div id="Team"/>  <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+            <div class="container text-center">
                 <h1 class="featurette-heading">Our Team</h1>
 
                 <p class="lead">
@@ -855,7 +863,8 @@
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/roy-gvirtsman-4422193/">
-                                    <img class="img-rounded" src="img/headshot_roy_0.jpg" style="width:75%">
+                                    <img class="img-rounded" src="img/headshot_roy_0.jpg" style="width:75%"
+                                    alt="Roy Gvirtsman">
                                 </a>
                             </div>
 
@@ -874,7 +883,8 @@
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/michaelnielsen321/">
-                                    <img class="img-rounded" src="img/michael_nielsen.jpeg" style="width:75%">
+                                    <img class="img-rounded" src="img/michael_nielsen.jpeg" style="width:75%"
+                                    alt="Michael Nielsen">
                                 </a>
                             </div>
 
@@ -894,7 +904,8 @@
                         <div class="card card-profile card-plain">
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/bschneid/">
-                                    <img class="img-rounded" src="img/brian_schneider.jpg" style="width:75%">
+                                    <img class="img-rounded" src="img/brian_schneider.jpg" style="width:75%"
+                                    alt="Brian Schneider">
                                 </a>
                             </div>
 
@@ -911,7 +922,7 @@
             </div>
 
 
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div id="bottom">   <br/> <br/> <br/>
                     <div class="row featurette">
                         <div class="row">
