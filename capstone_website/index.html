@@ -9,26 +9,26 @@
         <link href="css/custom.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
-	<link rel="icon" type="image/png" sizes="196x196" href="favicon-192.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-	<link rel="apple-touch-icon" href="favicon-57.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="favicon-60.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="favicon-144.png">
-	<meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+        <link rel="icon" type="image/png" sizes="196x196" href="favicon-192.png">
+        <link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+        <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+        <link rel="apple-touch-icon" href="favicon-57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon-60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+        <meta name="msapplication-TileColor" content="#FFFFFF">
+        <meta name="msapplication-TileImage" content="favicon-144.png">
+        <meta name="msapplication-config" content="browserconfig.xml">
 
 
     </head>
@@ -148,7 +148,7 @@
 
                     <br/><br/>
 
-                     Our goal is to create incredible short-form sports content that gives
+                    Our goal is to create incredible short-form sports content that gives
                     viewers high quality footage in less time.
 
                 </div>
@@ -249,8 +249,8 @@
                     <p class="lead">The path from long-form to short-form content
                     </p>
 
-                <div class="row text-left">
-                            <ul>
+                    <div class="row text-left">
+                        <ul>
 
                             <li>Assess each second’s likelihood to be important</li>
                             <li>Create a running average of subsequent importance</li>
@@ -259,16 +259,16 @@
                             <li>Determine # clips used in final video (running sum of length)</li>
                             <li>Encode video by assembling clips in chronological order</li>
 
-                            </ul>
-                  </div>
-                <div class="row text-left">
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                  </div>
+                        </ul>
+                    </div>
+                    <div class="row text-left">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
 
                 </div>
             </div>
@@ -310,7 +310,7 @@
                 <div class="container">
                     <h4 class="test">
                         Over 93% accuracy when trying to predict goals vs. non-goals.</br>
-                         90% accuracy when including missed goals.</h4>
+                        90% accuracy when including missed goals.</h4>
                     <br/>
                     <br/>
                     <br/>
@@ -361,26 +361,34 @@
                 <div class="row featurette">
                     <h1 class="featurette-heading">Finding Boundaries</h1>
                     <p class="lead">Picking the best start/stop points for a clip</p>
+
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
-                        <div class="col-lg-12 text-center">
-                             <div class="text-left">
-                                <ul>
-                                <li>  Start from peak
-                                </li>
-                                <li>  Find the lowest points on both sides
-                                </li>
-                                <li>  Find the first scene that starts at least 30 seconds before the peak.
-                                </li>
-                                <li>  Pick the earliest of the 2 &amp; 3
-                                </li>
-                                <li>  Find the first scene after the peak with over 100 objects (using SURF)
-                                </li>
-                                <li>  Pick the latest of 2 &amp; 5 (scene end)
-                                </li>
-                                <ul>
                         </div>
+                        <div class="col-lg-12 text-center">
+                            <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <div class="text-left">
+                                    <ul>
+                                        <li>  Start from peak
+                                        </li>
+                                        <li>  Find the lowest points on both sides
+                                        </li>
+                                        <li>  Find the first scene that starts at least 30 seconds before the peak.
+                                        </li>
+                                        <li>  Pick the earliest of the 2 &amp; 3
+                                        </li>
+                                        <li>  Find the first scene after the peak with over 100 objects (using SURF)
+                                        </li>
+                                        <li>  Pick the latest of 2 &amp; 5 (scene end)
+                                        </li>
+                                        <ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -390,7 +398,7 @@
 
         <div class="container-fluid text-center">
 
-            <h1 class="featurette-heading">Finding a Compelling Clip</h1>
+            <h1 class="featurette-heading">Selecting a Compelling Clip</h1>
 
             <p class='lead'>Audio analysis showing potential highlights  <font style="background-color: yellow">"highlighted"</font>
             </p>
@@ -403,7 +411,7 @@
                 </div>
 
             </div>
-         </div>
+        </div>
 
 
         <div class="container text-center">
@@ -459,7 +467,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_0_3111_3126.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_0_3111_3126.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:51:31 - 0:52:05</td>
@@ -469,7 +477,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_1_1613_1665.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_1_1613_1665.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:26:53 - 0:27:45</td>
@@ -479,7 +487,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_2_2779_2823.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_2_2779_2823.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:46:19 - 0:47:03</td>
@@ -489,7 +497,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_3_442_505.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_3_442_505.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:07:22 - 0:08:25</td>
@@ -499,7 +507,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_4_2493_2507.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_4_2493_2507.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:41:33 - 0:41:47</td>
@@ -509,7 +517,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_5_2060_2156.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_5_2060_2156.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:34:20 - 0:35:56</td>
@@ -519,7 +527,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_6_2962_3026.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_6_2962_3026.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:49:22 - 0:50:26</td>
@@ -529,7 +537,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_7_886_913.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_7_886_913.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:14:46 - 0:15:13</td>
@@ -539,7 +547,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_8_3060_3104.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_8_3060_3104.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:51:00 - 0:51:44</td>
@@ -549,7 +557,7 @@
                                     <td>
                                         <video height="200"
                                                poster="img/posters/scene_9_845_859.png"
-                                            controls>
+                                               controls>
                                             <source src="video/test_sam_juv_2nd_half/scene_9_845_859.mp4" type="video/mp4"></video>
                                     </td>
                                     <td>0:14:05 - 0:14:19</td>
@@ -563,30 +571,30 @@
 
 
         <div class="container-fluid text-center">
-        <div id="Demo">   <br/> <br/> <br/>
-            <h1 class="featurette-heading">Creating a Quality Highlight Video</h1>
-            <p class="lead">The generated video highlight</p>
+            <div id="Demo">   <br/> <br/> <br/>
+                <h1 class="featurette-heading">Creating a Quality Highlight Video</h1>
+                <p class="lead">The generated video highlight</p>
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
 
-                    <!--
-                        <source src="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADA_1vZbWlLrQ8448FHNrMia/test_cry_che_1st_half_eng/scene0.mp4" type='video/mp4'> -->
-                            <!-- Duration: 00:06:06.34, start: 0.000000, bitrate: 2626 kb/s
-                                Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 2486 kb/s, 58.82 fps, 58.82 tbr, 11764 tbn, 117.64 tbc
-                                <video width="720" height="576" controls
-                            -->
-                                    <video width="720"
-                                           poster="img/posters/test_sam_juv_2nd_half_highlight.png"
-                                           controls>
-                                        <source src="video/test_sam_juv_2nd_half_highlight.mp4" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                    </video>
+                        <!--
+                            <source src="https://www.dropbox.com/sh/o7x3x5mwfbk027s/AADA_1vZbWlLrQ8448FHNrMia/test_cry_che_1st_half_eng/scene0.mp4" type='video/mp4'> -->
+                                <!-- Duration: 00:06:06.34, start: 0.000000, bitrate: 2626 kb/s
+                                    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 2486 kb/s, 58.82 fps, 58.82 tbr, 11764 tbn, 117.64 tbc
+                                    <video width="720" height="576" controls
+                                -->
+                                        <video width="720"
+                                               poster="img/posters/test_sam_juv_2nd_half_highlight.png"
+                                               controls>
+                                            <source src="video/test_sam_juv_2nd_half_highlight.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                        </video>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
 
@@ -864,7 +872,7 @@
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/roy-gvirtsman-4422193/">
                                     <img class="img-rounded" src="img/headshot_roy_0.jpg" style="width:75%"
-                                    alt="Roy Gvirtsman">
+                                                                                          alt="Roy Gvirtsman">
                                 </a>
                             </div>
 
@@ -884,7 +892,7 @@
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/michaelnielsen321/">
                                     <img class="img-rounded" src="img/michael_nielsen.jpeg" style="width:75%"
-                                    alt="Michael Nielsen">
+                                                                                            alt="Michael Nielsen">
                                 </a>
                             </div>
 
@@ -905,7 +913,7 @@
                             <div class="card-avatar">
                                 <a href="https://www.linkedin.com/in/bschneid/">
                                     <img class="img-rounded" src="img/brian_schneider.jpg" style="width:75%"
-                                    alt="Brian Schneider">
+                                                                                           alt="Brian Schneider">
                                 </a>
                             </div>
 
