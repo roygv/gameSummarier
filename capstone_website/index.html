@@ -148,9 +148,8 @@
 
                     <br/><br/>
 
-                    <!-- Our goal is to create incredible short-form sports content that gives
-                    viewers the high quality footage in less time.
-                    -->
+                     Our goal is to create incredible short-form sports content that gives
+                    viewers high quality footage in less time.
 
                 </div>
 
@@ -255,7 +254,7 @@
 
                             <li>Assess each second’s likelihood to be important</li>
                             <li>Create a running average of subsequent importance</li>
-                            <li>Find top N overall events</li>
+                            <li>Find top events by probability </li>
                             <li>Use scene detection &amp; object counting to determine clip boundaries</li>
                             <li>Determine # clips used in final video (running sum of length)</li>
                             <li>Encode video by assembling clips in chronological order</li>
@@ -356,7 +355,40 @@
         -->
 
 
+
         <div class="container text-center">
+            <div id="Boundaries">   <br/> <br/> <br/>
+                <div class="row featurette">
+                    <h1 class="featurette-heading">Finding Boundaries</h1>
+                    <p class="lead">Picking the best start/stop points for a clip</p>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
+                        <div class="col-lg-12 text-center">
+                             <div class="text-left">
+                                <ul>
+                                <li>  Start from peak
+                                </li>
+                                <li>  Find the lowest points on both sides
+                                </li>
+                                <li>  Find the first scene that starts at least 30 seconds before the peak.
+                                </li>
+                                <li>  Pick the earliest of the 2 &amp; 3
+                                </li>
+                                <li>  Find the first scene after the peak with over 100 objects (using SURF)
+                                </li>
+                                <li>  Pick the latest of 2 &amp; 5 (scene end)
+                                </li>
+                                <ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid text-center">
 
             <h1 class="featurette-heading">Finding a Compelling Clip</h1>
 
@@ -371,8 +403,10 @@
                 </div>
 
             </div>
+         </div>
 
 
+        <div class="container text-center">
             <div class="row text-center">
                 <div class="col-md-12">
 
@@ -384,7 +418,7 @@
 
                         <table class='cliptable'>
                             <thead>
-                                <tr bgcolor="#e3e9f4">
+                                <tr bgcolor="#eeeeee">
                                     <th>Ranking</th>
                                     <th>Highlight&nbsp;Clip</th>
                                     <th>Start&nbsp;Time&nbsp;&rarr;&nbsp;End&nbsp;Time</th>
@@ -557,69 +591,6 @@
 
 
 
-
-        <div class="container text-center">
-            <div id="Boundaries">   <br/> <br/> <br/>
-                <div class="row featurette">
-                    <h1 class="featurette-heading">Finding Boundaries</h1>
-                    <p class="lead">Picking the best start/stop points for a clip</p>
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <img src="img/finding_boundaries.png" alt="Clip boundaries" style="width:60%"/>
-                        </div>
-
-
-                        <div class="col-lg-12 text-left">
-                            <!-- any bullet points? -->
-                            <!--
-                                <ul>
-
-                                <li> one
-                                </li>
-
-                                <li> two
-                                </li>
-
-                                <li> three
-                                </li>
-                                </ul>
-                            -->
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <!--
-            Next Steps, duplicate
-        <div class="container-fluid text-center">
-            <div id="Roadmap">   <br/> <br/> <br/>
-                <div class="row featurette">
-                    <h1 class="featurette-heading">Next Steps</h1>
-                    <p class="lead">The path from long-form to short-form content
-                    </p>
-                    <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <ul>
-                                <li>Assess each second’s importance probability</li>
-                                <li>Calculate running average of subsequent importance</li>
-                                <li>Find top <i>N</i> overall events</li>
-                                <li>Determine clip boundaries via scene detection, object counting</li>
-                                <li>Limit clips included in final video (by total length)</li>
-                                <li>Generate final video by assembling clips in chronological order</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-
         <!-- TEMPLATE FOR NEW SECTIONS
             <div class="container-fluid text-center">
             <div id="Next Steps">   <br/> <br/> <br/>
@@ -648,7 +619,7 @@
         -->
 
         <div id="Roadmap">   <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+            <div class="container text-center">
                 <div class="row featurette">
                     <h1 class="featurette-heading">Next Steps</h1>
                     <p class="lead">Iteratively improving the product, building out the pipeline
@@ -683,7 +654,7 @@
 
 
         <div id="Deliver">  <br/> <br/> <br/>
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Delivering Sports Summaries to Consumers</h1>
@@ -716,7 +687,7 @@
 
 
         <div id="General">  <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+            <div class="container text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Generalizability to other sports</h1>
@@ -755,7 +726,7 @@
 
 
         <div id="abouttime">  <br/> <br/> <br/>
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Sports Summary: It's about <i>Time</i></h1>
@@ -875,7 +846,7 @@
 
 
         <div id="Team"/>  <br/> <br/> <br/>
-            <div class="container-fluid text-center">
+            <div class="container text-center">
                 <h1 class="featurette-heading">Our Team</h1>
 
                 <p class="lead">
@@ -951,7 +922,7 @@
             </div>
 
 
-            <div class="container text-center">
+            <div class="container-fluid text-center">
                 <div id="bottom">   <br/> <br/> <br/>
                     <div class="row featurette">
                         <div class="row">
