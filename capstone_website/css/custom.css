@@ -78,7 +78,7 @@
     margin-top: 50px;
 }
 .test {
-    margin-top: 40px;
+    margin-bottom: 50px;
 }
 .tester {
     margin-top: 350px;
@@ -100,6 +100,12 @@ ul {
     width: 70%;
     margin: auto;
     font-size: 32px;
+}
+.boundaries {
+    margin-top: 60px;
+    width: 70%;
+    margin: auto;
+    font-size: 24px;   
 }
 .col-lg-12 {
     margin-top: 70px;
@@ -139,4 +145,28 @@ ul {
     font-style: bold;
     text-align: left;
 }
-
+.col-lg-10 {
+    margin-left: 80px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.nextsteps {
+    font-size: 38px;   
+}
+.delivering {
+    font-size: 40px;     
+}
+.generalizability {
+    font-size: 31px;
+}
+.summary {
+    font-size: 38px;
+}
+.card {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+/*h4 {
+    margin-top: 30px;
+    margin-bottom: 30px;    
+}*/
