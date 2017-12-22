@@ -71,7 +71,7 @@
             <div class="col-md-6"></div>
             <div class="col-md-6"></div>
         </div>
-        <div class="container">
+        <div class="container-fluid text-center" style="background-color: #ffffff;">
             <div class="row">
                 <div class="col-md-4 text-center">
                     <h2>Not Enough Time</h2>
@@ -156,7 +156,7 @@
             </div>
         </div>
 
-        <div class="container text-center">
+        <div class="container-fluid text-center" style="background-color: #ffffff;">
 
             <h1>Background: The Sports Landscape</h1>
 
@@ -164,22 +164,24 @@
             </p>
 
             <div class="row">
-                <div class="col-lg-6 text-center">
+                <div class="col-md-7 text-center">
                     <div class="img">
-                        <img src="img/soccermoney.png" alt="That is a lot of money." style="width:95%" height="300" width="550"/>
+                        <img src="img/soccermoney.png" alt="That is a lot of money." height="300" width="550"/>
                     </div>
                 </div>
 
-                <div class="col-lg-6 text-left">
+                <div class="col-md-5 text-left">
                     <ul>
-                        <li>Soccer constitutes the largest sports market in the world.</li>
-                        <li>There are multiple ways to access a large volume of soccer games, for free, in digital form.</li>
+                   <li><small>Soccer constitutes the largest sports market in the world.</small></li>
+                   <li><small>Lots of games can be accessed for free online.</small></li>
                     </ul>
                 </div>
             </div>
 
+            <div class="row">
             <div class="text-lg-b4">
                 How might we best unlock the hidden language of a soccer game?
+            </div>
             </div>
 
         </div>
@@ -242,7 +244,8 @@
 
 
         <div id="Solution">   <br/> <br/> <br/>
-            <div class="container text-center">
+            <!-- <div class="container-fluid text-center" style="background-color: #e3e9f4;"> -->
+            <div class="container-fluid text-center" style="background-color: #ffffff;">
                 <div class="row featurette">
                     <h1 class="featurette-heading">Algorithm Steps</h1>
 
@@ -250,6 +253,7 @@
                     </p>
 
                     <div class="row text-left">
+                    <div class='col-md'>
                         <ul>
 
                             <li>Assess each second’s likelihood to be important</li>
@@ -260,6 +264,7 @@
                             <li>Encode video by assembling clips in chronological order</li>
 
                         </ul>
+                    </div>
                     </div>
                     <div class="row text-left">
                         <br/>
@@ -308,12 +313,20 @@
                     </div>
                 </div>
                 <div class="container">
-                    <h4 class="test">
-                        Over 93% recall when trying to predict goals vs. non-goals.</br>
-                        90% accuracy when including missed goals.</h4>
+                    <div class='row'>
+                    <div class='col text-left'>
+                   <ul><small>
+                        <li> Over 93% recall when trying to predict goals vs. non-goals.</li>
+                             <li> 90% accuracy when including missed goals.</li>
+                        </small>
+               </ul>
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                 </div>
+                 </div>
                 </div>
             </div>
         </div>
@@ -356,9 +369,11 @@
 
 
 
-        <div class="container text-center">
+        <div class="container-fluid text-center" style="background-color: #ffffff;">
             <div id="Boundaries">
                 <div class="row featurette">
+                    <br/>
+                    <br/>
                     <h1 class="featurette-heading">Finding Boundaries</h1>
                     <p class="lead">Picking the best start/stop points for a clip</p>
 
@@ -376,15 +391,15 @@
                                     <ul class="boundaries">
                                         <li>  Start from peak
                                         </li>
-                                        <li>  Find the lowest points on both sides
+                                        <li>  Find lowest points on both sides
                                         </li>
-                                        <li>  Find the first scene that starts at least 30 seconds before the peak.
+                                        <li>  Find first scene starting at least 30 seconds before the peak
                                         </li>
-                                        <li>  Pick the earliest of the 2 &amp; 3
+                                        <li>  Pick earliest of the 2 &amp; 3
                                         </li>
-                                        <li>  Find the first scene after the peak with over 100 objects (using SURF)
+                                        <li>  Find first scene after the peak with over 100 objects (use SURF)
                                         </li>
-                                        <li>  Pick the latest of 2 &amp; 5 (scene end)
+                                        <li>  Pick latest of 2 &amp; 5 (scene end)
                                         </li>
                                         <ul>
                                 </div>
@@ -426,10 +441,10 @@
 
                         <table class='cliptable'>
                             <thead>
-                                <tr bgcolor="#eeeeee">
+                                <tr bgcolor="#dddddd">
                                     <th>Ranking</th>
                                     <th>Highlight&nbsp;Clip</th>
-                                    <th>Start&nbsp;Time&nbsp;&rarr;&nbsp;End&nbsp;Time</th>
+                                    <th>Start&nbsp;Time&nbsp;&rarr;&nbsp;End&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;</th>
                                 </tr>
                             </thead>
 
@@ -629,12 +644,13 @@
         <div id="Roadmap">   <br/> <br/> <br/>
             <div class="container-fluid text-center">
                 <div class="row featurette">
+                        <br />
                     <h1 class="featurette-heading">Next Steps</h1>
                     <p class="lead">Iteratively improving the product, building out the pipeline
                     </p>
                     <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <ul class = "nextsteps">
+                        <div class="col-bg text-left">
+                            <ul>
 
                                 <li> Iterate: Get training data to improve precision and recall
                                     for complete videos using Levenshtein (edit-distance)
@@ -654,6 +670,11 @@
                     <div class="row">
                         <br />
                         <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </div>
 
                 </div>
@@ -662,8 +683,9 @@
 
 
         <div id="Deliver">
-            <div class="container text-center">
+            <div class="container-fluid text-center" style="background-color: #ffffff;">
                 <div class="row featurette">
+                        <br />
 
                     <h1 class="featurette-heading">Delivering Sports Summaries to Consumers</h1>
 
@@ -671,22 +693,25 @@
                     </p>
 
                     <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <ul class="delivering">
-
-                                <li> PVR (personal video recorder) -- run locally
+                        <div class="col-md-12 text-left">
+                            <ul> 
+                                <li> PVR (personal video recorder): run locally
                                 </li>
 
-                                <li> Content provider -- run on a server
+                                <li> Content provider: run on a server
                                 </li>
 
-                                <li> Store index in the cloud  --
-                                    index factory + highlight app
+                                <li> Store index in the cloud: index factory+highlight&nbsp;app
                                 </li>
 
-                                <li> Sports channel -- Facebook-like curated content
+                                <li> Sports channel: Facebook-like curated content
                                 </li>
                             </ul>
+               <br/>
+               <br/>
+               <br/>
+               <br/>
+               <br/>
                         </div>
                     </div>
                 </div>
@@ -697,14 +722,16 @@
         <div id="General">
             <div class="container-fluid text-center">
                 <div class="row featurette">
+                        <br />
 
                     <h1 class="featurette-heading">Generalizability to other sports</h1>
 
+                    <p class="lead">The language of sports
                     <!-- <p class="lead"> subtitle?  </p> -->
 
                     <div class="row">
-                        <div class="col-lg-12 text-left">
-                            <ul class="generalizability">
+                        <div class="col-md text-left">
+                            <ul>
 
                                 <li> A crowd is a crowd: they speak the same language
                                 </li>
@@ -713,17 +740,23 @@
                                     <ul>
                                         <li> Football: drive leading up to score</li>
                                         <li> Basketball: short, stand-alone clips </li>
-                                        <li> Golf: include silence prior to the highlight  </li>
+                                        <li> Golf: include quiet moments prior to highlight  </li>
                                     </ul>
                                 </li>
 
-                                <li> Some sports do not have a crowd, or a reaction is not audible (e.g., some olympic sports: downhill skiing, swimming)
+                                <li> Some sports do not have a crowd, or a reaction is not audible 
+                         (e.g., some olympic sports: downhill skiing, swimming)
                                 </li>
                                 <li>
-                                    Conclusion: with adjustments, application can generalize for all popular spectator sports
+                                    Conclusion: with adjustments, application can generalize 
+                        for all popular spectator sports
                                 </li>
 
                             </ul>
+                   <br/>
+                   <br/>
+                   <br/>
+                   <br/>
                         </div>
                     </div>
                 </div>
@@ -734,7 +767,7 @@
 
 
         <div id="abouttime">
-            <div class="container text-center">
+            <div class="container-fluid text-center" style="background-color: #ffffff;">
                 <div class="row featurette">
 
                     <h1 class="featurette-heading">Sports Summary: It's about <i>Time</i></h1>
